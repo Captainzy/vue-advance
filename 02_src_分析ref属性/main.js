@@ -8,5 +8,14 @@ Vue.config.productionTip = false;
 
 new Vue({
     el:'#app',
-    render: h => h(App)
+    render(createElement) {
+        return createElement('div', [
+            createElement('p', 'Count: ' + this.count),
+            createElement('button', {
+                on: {
+                    click: this.increment
+                }
+            }, 'Increment')
+        ]);
+    }
 });
